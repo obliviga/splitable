@@ -78,6 +78,11 @@ module.exports = {
             }
         ],
     },
+    resolve: {
+      alias: {
+        jquery: "jquery/src/jquery"
+      }
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',
