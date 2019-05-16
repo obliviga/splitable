@@ -6,3 +6,5 @@ require('./../styles/index.scss');
 // Scripts
 require('jquery');
 require('./generateTotal');
+require('./addPerson');
+require('./generateDues');

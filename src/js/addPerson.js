@@ -1,8 +1,12 @@
 $(document).ready(() => {
-  // Get values of subtotal, tax, and tip
+  let personIndex = 1;
+
+  // Add a person with a consecutive index starting from 2
   $('#addPerson').click(() => {
+    personIndex += 1;
+
     $('tbody').append(
-      '<tr><td><input placeholder=Bob><td>$<span id=due>0</span><td><input type=number>',
+      `<tr><td><input type="text"placeholder="Bob"></td><td>$<span class="due${personIndex}">0</span></td><td><input type="number"min="0"></td></tr>`,
     );
   });
 });
