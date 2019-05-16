@@ -1,8 +1,3 @@
-
-require('normalize.css/normalize.css');
-require('./styles/index.scss');
-require('jquery');
-
 $(document).ready(() => {
   // Get values of subtotal, tax, and tip
   $('.input').on('input', () => {
