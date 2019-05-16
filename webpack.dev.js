@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'eval-cheap-module-source-map',
@@ -23,7 +23,7 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         use: ExtractTextPlugin.extract({
           use: [
             'css-loader',
