@@ -5,6 +5,7 @@ $(document).ready(() => {
 
   // Add a person with a consecutive index starting from 2
   $('#addPerson').click(() => {
+    // Generate dues for additional folk
     generateDues();
     personIndex += 1;
 

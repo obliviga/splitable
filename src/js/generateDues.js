@@ -7,8 +7,10 @@ export default function generateDues() {
     for (let i = 0; i < peopleQuantity; i += 1) {
       $(`.item${i}`).on('input', () => {
         $(`.due${i}`).html($(`.item${i}`).val());
-        console.log(i);
       });
     }
   });
 }
+
+// Call the function immediately, to affect the two default people
+generateDues();
