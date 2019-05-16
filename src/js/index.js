@@ -5,4 +5,4 @@ require('./../styles/index.scss');
 
 // Scripts
 require('jquery');
-require('./total.js');
+require('./generateTotal');
