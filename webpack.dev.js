@@ -8,6 +8,7 @@ module.exports = {
   devServer: {
     port: 8080,
     contentBase: path.join(__dirname, 'dist'),
+    // host: '192.168.0.100',
   },
   node: {
     fs: 'empty',
