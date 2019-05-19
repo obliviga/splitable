@@ -8,3 +8,4 @@ require('jquery');
 require('./generateTotal');
 require('./addPerson');
 require('./generateDues');
+require('./addItem');
