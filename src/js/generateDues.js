@@ -5,10 +5,10 @@ export default function generateDues() {
     const peopleQuantity = getPeopleQuantity();
 
     for (let i = 0; i < peopleQuantity; i += 1) {
-      $(`.item${i}`).on('input', () => {
+      $(`.person${i + 1}`).on('input', () => {
         let sum = 0;
 
-        $(`.due${i + 1}`).html($(`.item${i}`).val());
+        $(`.due${i + 1}`).html($(`.person${i + 1}`).val());
 
         $('[class*="due"]').each(function () {
           sum += +$(this).text() || 0;
