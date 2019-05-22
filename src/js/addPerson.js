@@ -12,7 +12,7 @@ $(document).ready(() => {
         <td>
           <input type="text" placeholder="Bob ${personIndex + 1}" />
         </td>
-        <td>$<span class="due${personIndex}">0</span></td>
+        <td>$<span class="due${personIndex + 1}">0</span></td>
         <td>
           <input type="number"class="item${personIndex}"min="0" />
         </td>

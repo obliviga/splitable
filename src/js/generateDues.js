@@ -8,7 +8,7 @@ export default function generateDues() {
       $(`.item${i}`).on('input', () => {
         let sum = 0;
 
-        $(`.due${i}`).html($(`.item${i}`).val());
+        $(`.due${i + 1}`).html($(`.item${i}`).val());
 
         $('[class*="due"]').each(function () {
           sum += +$(this).text() || 0;
