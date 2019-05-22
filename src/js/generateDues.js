@@ -5,14 +5,18 @@ export default function generateDues() {
     const peopleQuantity = getPeopleQuantity();
 
     for (let i = 0; i < peopleQuantity; i += 1) {
-      $(`.person${i + 1}`).on('input', () => {
+      const index = i + 1;
+
+      $(`.person${index}`).on('input', () => {
         let sum = 0;
 
-        $(`.due${i + 1}`).html($(`.person${i + 1}`).val());
+        $(`.due${index}`).html($(`.person${index}`).val());
 
-        $('[class*="due"]').each(function () {
-          sum += +$(this).text() || 0;
-        });
+        $('[class*="due"]').each(
+          function getSum() {
+            sum += +$(this).text() || 0;
+          },
+        );
 
         $('#itemized-total').html(sum);
       });
