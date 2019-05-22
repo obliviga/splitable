@@ -10,9 +10,9 @@ $(document).ready(() => {
     personIndex += 1;
 
     $('tr td:last-child').after(
-      `<td><input type="number" class="item0" min="0"/></td>`,
+      `<td>
+        <input type="number" class="item0" min="0"/>
+      </td>`,
     );
-
-
   });
 });

@@ -1,5 +1,5 @@
 import generateDues from './generateDues';
-import getItemQuantity from './getItemQuantity';
+import getItemQuantity from './utils/getItemQuantity';
 
 $(document).ready(() => {
   let personIndex = 1;

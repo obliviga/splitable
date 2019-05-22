@@ -1,4 +1,4 @@
-import getPeopleQuantity from './getPeopleQuantity';
+import getPeopleQuantity from './utils/getPeopleQuantity';
 
 export default function generateDues() {
   $(document).ready(() => {
