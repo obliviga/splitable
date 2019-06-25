@@ -3,3 +3,9 @@ export default function getItemQuantity() {
 
   return itemQuantity;
 }
+
+export function getPersonOneItemQuantity() {
+  const personOneItemQuantity = $('tr:first-child input[type="number"]').length;
+  
+  return personOneItemQuantity;
+}
