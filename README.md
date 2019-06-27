@@ -19,7 +19,3 @@ To start the development server
 ```sh
 npm start
 ```
-
-___
-Author [Anish Kshatriya](www.obliviga.com)
-
