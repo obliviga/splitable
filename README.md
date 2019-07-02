@@ -14,6 +14,12 @@ I'll get there.
 
 ## Usage
 
+Install dependencies
+
+```sh
+npm install
+```
+
 To start the development server
 
 ```sh
