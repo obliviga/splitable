@@ -16,19 +16,34 @@ export default class Splitable {
         this.subtotalInput = this._$el.find('.subtotal-input');
         this.taxInput = this._$el.find('.tax-input');
         this.tipInput = this._$el.find('.tip-input');
-        this.discountInput = this._$el.find('.discount');
+        this.discountInput = this._$el.find('.discount-input');
         this.totalLabel = this._$el.find('.total-label');
         this.itemizedTotalLabel = this._$el.find('.itemized-total-label');
 
         // state
-        this.personCount = this.table.find('.person-row').length;
-        this.itemCount = this.table.find('.item-col-head').length;
+        this.initState();       
 
         this.bindEvents();
     }
 
-    get total() {
-        return this.subtotal * ((1 - this.discount) / 100) + this.tip + this.tax;
+    initState() {
+        this.personCount = this.table.find('.person-row').length;
+        this.itemCount = this.table.find('.item-col-head').length;
+        this.subtotal = +this.subtotalInput.val();
+        this.discountValue = +this.discountInput.val();
+        this.tax = +this.taxInput.val();
+        this.tipValue = +this.tipInput.val();
+        this.tipOption = this._$el.find("input[name='tip-option']:checked").val();
+    }
+
+     get total() {
+        // Make sure we don't get any undefined values
+        const subtotal = this.subtotal || 0;
+        const tax = this.tax || 0;
+        const tip = this.tip || 0;
+        const discount = this.discount || 0;
+
+        return (subtotal * (1 - (discount/100))) + tip + tax;
     }
 
     get itemizedTotal() {
@@ -36,26 +51,9 @@ export default class Splitable {
             .reduce((sum, $el) => sum += (+$($el).html()), 0);
     }
 
-    get subtotal() {
-        return this.subtotalInput.val();
-    }
-
-    get discount() {
-        return this.discountInput.val();
-    }
-
-    get tax() {
-        return this.taxInput.val();
-    }
-
     get tip() {
-        const tipInputValue = this.tipInput.val();
-        return this.tipOption === TipOptions.FIXED ? tipInputValue :
-            (this.subtotal * tipInputValue / 100)
-    }
-
-    get tipOption() {
-        return this._$el.find("input[name='tip-option']:checked").val() || TipOptions.FIXED;
+        return +(this.tipOption === TipOptions.FIXED ? this.tipValue :
+            (this.subtotal * this.tipValue / 100));
     }
 
     getPersonDue(idx) {
@@ -65,32 +63,44 @@ export default class Splitable {
     }
 
     updateItemizedTotal() {
+        this.itemizedTotal = this.table.find('.due').toArray()
+            .reduce((sum, $el) => sum += (+$($el).html()), 0);
         this.itemizedTotalLabel.html(this.itemizedTotal);
     }
 
     updateTotal() {
-        this.totalLabel.html(this.total);
-    }
-
-    updateTipTotal() {
-        // TODO
+        this.totalLabel.html(+this.total);
     }
 
     bindEvents() {
         this.addPersonBtn.click(this.addPerson.bind(this));
         this.addItemBtn.click(this.addItem.bind(this));
 
+        this.subtotalInput.on('input', (e) => {
+           this.subtotal = +this.subtotalInput.val();
+           this.updateTotal();
+        });
+        this.taxInput.on('input', (e) => {
+            this.tax = +this.taxInput.val();
+            this.updateTotal();
+        });
+        this.discountInput.on('input', (e) => {
+            this.discount = +this.discountInput.val();
+            this.updateTotal();
+        });
+        this.tipInput.on('input', (e) => {
+            this.tipValue = +this.tipInput.val();
+            this.updateTotal();
+        });
+        this._$el.find('input[name="tip-option"]').on('input', (e) => {
+            this.tipOption = e.target.value;
+            this.updateTotal();
+        });
         this.table.on('input', '.item-input', (e) => {
             const personIdx = e.target.dataset.personIndex;
             this.table.find(`.due${personIdx}`).html(this.getPersonDue(personIdx));
             this.updateItemizedTotal();
         });
-
-        this._$el.on('input', '.tip-input, .tax-input, .subtotal-input, .discount-input, input[name="tip-option"]', () => {
-            this.updateTipTotal();
-
-            this.updateTotal();
-        })
     }
 
     addItem(defaultPrice) {
