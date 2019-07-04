@@ -14,33 +14,33 @@
     <div>
       <label>
         Subtotal
-        <input id="subtotal" class="subtotal-input" type="number"/>
+        <input class="subtotal-input" type="number"/>
       </label>
       <br>
       <label>
         Tax
-        <input id="tax" class="tax-input" type="number"/>
+        <input class="tax-input" type="number"/>
       </label>
       <br>
       <label>
         Tip
-        <input id="tip" class="tip-input" type="number"/> 
+        <input class="tip-input" type="number"/> 
         <input type="radio" name="tip-option" value="percent" checked> %
         |
         <input type="radio" name="tip-option" value="fixed"> $
       </label>
       <br>
       <label>
-        Total Tip: $<span class="tipTotal">0</span>
+        Total Tip: $<span class="tip-total-label">0.00</span>
       </label>
       <br>
       <label>
         Discount
-        <input id="discount" class="discount-input" type="number"/>
+        <input class="discount-input" type="number"/>
       </label>
-      <p>Total: $<span id="total" class="total-label">0</span></p>
-      <button id="add-person" class="add-person-btn">Add person</button>
-      <button id="add-item" class="add-item-btn">Add item</button>
+      <p>Total: $<span class="total-label">0.00</span></p>
+      <button class="add-person-btn">Add person</button>
+      <button class="add-item-btn">Add item</button>
     </div>
     <table>
       <thead>
@@ -54,7 +54,9 @@
         <!-- Person rows -->
       </tbody>
     </table>
-    <p>Itemized Total: $<span id="itemized-total" class="itemized-total-label">0</span></p>
+    <p>Itemized Total: $<span class="itemized-total-label">0.00</span></p>
+    <p class="total-match-msg">Everything checks out</p>
+    <p class="total-mismatch-msg">Check Total does not match summed Total</p>
   </div>
 </body>
 
