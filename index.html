@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>splitable - Split a bill!</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 </head>
+
 <body>
   <h1>Splitable.</h1>
-  <label>
-    Subtotal
-    <input class="input" id="subtotal" type="number" />
-  </label>
-  <label>
-    Tax
-    <input class="input" id="tax" type="number" />
-  </label>
-  <label>
-    Tip
-    <input class="input" id="tip" type="number" />
-  </label>
-  <p>Total: $<span id="total"></span></p>
-  <button id="addPerson">Add person</button>
-  <button id="addItem">Add item</button>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Due</th>
-        <th>Item <span class="itemNumber">1</span> Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <input type="text" placeholder="Bob" />
-        </td> 
-        <td>
-          $<span class="due1">0</span>
-        </td>
-        <td>
-          <input type="number" class="person1 item1" min="0"/>
-        </td>  
-      </tr>
-      <tr>
-        <td>
-          <input type="text" placeholder="Bob 2" />
-        </td>
-        <td>
-          $<span class="due2">0</span>
-        </td>
-        <td>
-          <input type="number" class="person2 item1" min="0"/>
-        </td>  
-      </tr>
-    </tbody>
-  </table>
-  <p>Itemized Total: $<span id="itemized-total"></span></p>
+  <div id="splitable">
+    <div>
+      <label>
+        Subtotal
+        <input class="subtotal-input" type="number"/>
+      </label>
+      <br>
+      <label>
+        Tax
+        <input class="tax-input" type="number"/>
+      </label>
+      <br>
+      <label>
+        Tip
+        <input class="tip-input" type="number"/> 
+        <input type="radio" name="tip-option" value="percent" checked> %
+        |
+        <input type="radio" name="tip-option" value="fixed"> $
+      </label>
+      <br>
+      <label>
+        Total Tip: $<span class="tip-total-label">0.00</span>
+      </label>
+      <br>
+      <label>
+        Discount
+        <input class="discount-input" type="number"/>
+      </label>
+      <p>Total: $<span class="total-label">0.00</span></p>
+      <button class="add-person-btn">Add person</button>
+      <button class="add-item-btn">Add item</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Due</th>
+          <!-- Item column labels added here -->
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Person rows -->
+      </tbody>
+    </table>
+    <p>Itemized Total: $<span class="itemized-total-label">0.00</span></p>
+    <p class="total-match-msg">Everything checks out</p>
+    <p class="total-mismatch-msg">Check Total does not match summed Total</p>
+  </div>
 </body>
+
 </html>
