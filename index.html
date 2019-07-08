@@ -5,44 +5,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>splitable - Split a bill!</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
   <h1>Splitable.</h1>
   <div id="splitable">
     <div>
-      <label>
-        Subtotal
-        <input class="subtotal-input" type="number"/>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <label class="mdl-textfield__label" for="subtotal-label">
+          Subtotal
+        </label>
+        <input class="subtotal-input mdl-textfield__input" type="number" id="subtotal-label" />
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <label class="mdl-textfield__label" for="tax-label">
+          Tax
+        </label>
+        <input class="tax-input mdl-textfield__input" type="number" id="tax-label" />
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <label class="mdl-textfield__label" for="tip-label">
+          Tip
+        </label>
+        <input class="tip-input mdl-textfield__input" id="tip-label" type="number" />
+      </div>
+
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="percent-option"> 
+        <input class="mdl-radio__button" id="percent-option" type="radio" name="tip-option" value="percent" checked /> %
       </label>
-      <br>
-      <label>
-        Tax
-        <input class="tax-input" type="number"/>
+
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="tip-option"> 
+        <input class="mdl-radio__button" id="tip-option" type="radio" name="tip-option" value="fixed" /> $
       </label>
-      <br>
-      <label>
-        Tip
-        <input class="tip-input" type="number"/> 
-        <input type="radio" name="tip-option" value="percent" checked> %
-        |
-        <input type="radio" name="tip-option" value="fixed"> $
-      </label>
-      <br>
+
       <label>
         Total Tip: $<span class="tip-total-label">0.00</span>
       </label>
       <br>
       <label>
         Discount
-        <input class="discount-input" type="number"/>
+        <input class="discount-input" type="number" />
       </label>
       <p>Total: $<span class="total-label">0.00</span></p>
-      <button class="add-person-btn">Add person</button>
-      <button class="add-item-btn">Add item</button>
+      <button class="add-person-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add person</button>
+      <button class="add-item-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add item</button>
     </div>
-    <table>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
       <thead>
         <tr>
           <th>Name</th>

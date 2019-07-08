@@ -1,7 +1,7 @@
+import '../../node_modules/material-design-lite/material.min';
 import Splitable from './splitable';
 
 // Styles
-require('normalize.css/normalize.css');
 require('./../styles/index.scss');
 
 const splitable = new Splitable('#splitable');
