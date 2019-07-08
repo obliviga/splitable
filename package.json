@@ -15,7 +15,8 @@
     },
     "keywords": [],
     "author": "Anish Kshatriya",
-    "license": "wtfpl",
+    "license": "UNLICENSED",
+    "private": true,
     "bugs": {
         "url": "https://github.com/obliviga/splitable/issues"
     },
