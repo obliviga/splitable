@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,12 @@
   <title>splitable - Split a bill!</title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    .no-js {
+      visibility: hidden;
+      opacity: 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -70,6 +76,11 @@
     <p class="total-match-msg">Everything checks out</p>
     <p class="total-mismatch-msg">Check Total does not match summed Total</p>
   </div>
+  <script>
+    window.onload = function() {
+      document.querySelector('html').classList.remove('no-js');
+    }
+  </script>
 </body>
 
 </html>
