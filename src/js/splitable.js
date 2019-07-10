@@ -37,20 +37,21 @@ export default class Splitable {
   initState() {
     this.personCount = this.table.find('.person-row').length;
     this.itemCount = this.table.find('.item-col-head').length;
-    this.subtotal = +this.subtotalInput.val() || 0;
-    this.discountValue = +this.discountInput.val() || 0;
-    this.tax = +this.taxInput.val() || 0;
-    this.tipValue = +this.tipInput.val() || 0;
+
+    this.subtotal = this.fetchSubtotal();
+    this.tax = this.fetchTax();
+    this.discount = this.fetchDiscount();
+    this.tipValue = this.fetchTipValue();
+
     this.tipOption = this._$el.find("input[name='tip-option']:checked").val();
   }
 
   /* Getters */
   get total() {
-    // Make sure we don't get any undefined values
-    const subtotal = this.subtotal || 0;
-    const tax = this.tax || 0;
-    const tip = this.tip || 0;
-    const discount = this.discount || 0;
+    const subtotal = this.subtotal;
+    const tax = this.tax;
+    const tip = this.tip;
+    const discount = this.discount;
 
     return (subtotal * (1 - (discount / 100))) + tip + tax;
   }
@@ -69,17 +70,16 @@ export default class Splitable {
   getPersonDue(idx) {
     if (!this.subtotal) return 0;
 
-    const subtotal = this.subtotal || 0;
-    const tip = this.tip || 0;
-    const tax = this.tax || 0;
-    const discount = this.discount || 0;
+    const subtotal = this.subtotal;
+    const tip = this.tip;
+    const tax = this.tax;
+    const discount = this.discount;
 
     const itemSum = this.table.find(`.person${idx}-item`)
       .toArray()
       .reduce((sum, $el) => sum += (+$el.value), 0);
-    const result = (itemSum + (tip + tax) * (itemSum / subtotal)) * (1 - (discount / 100));
 
-    return toFinancialNumber(result);
+    return (itemSum + (tip + tax) * (itemSum / subtotal)) * (1 - (discount / 100));
   }
 
   /* View Updates */
@@ -88,25 +88,25 @@ export default class Splitable {
   }
 
   updateTotal() {
-    this.totalLabel.html(toFinancialNumber(+this.total));
+    this.totalLabel.html(toFinancialNumber(this.total));
     this.onTotalChanged();
   }
 
   updateTipTotal() {
-    this.tipTotalLabel.html(toFinancialNumber(+this.tip));
+    this.tipTotalLabel.html(toFinancialNumber(this.tip));
   }
 
   updateDues() {
     this.table.find('.due').each((i, el) => {
       const personIdx = i + 1;
-      const due = this.getPersonDue(personIdx) || 0;
-      $(el).html(due);
+      const due = this.getPersonDue(personIdx);
+      $(el).html(toFinancialNumber(due));
     });
     this.onDuesChanged();
   }
 
   updateCompareTotalMessage() {
-    if (this.total === this.itemizedTotal) {
+    if (toFinancialNumber(this.total) === toFinancialNumber(this.itemizedTotal)) {
       this.totalMatchMessage.show();
       this.totalMismatchMessage.hide();
     } else {
@@ -130,21 +130,21 @@ export default class Splitable {
     this.addItemBtn.click(this.addItem.bind(this));
 
     this.subtotalInput.on('input', () => {
-      this.subtotal = +this.subtotalInput.val() || 0;
+      this.subtotal = this.fetchSubtotal();
       this.updateTotal();
       this.updateTipTotal();
     });
     this.taxInput.on('input', () => {
-      this.tax = +this.taxInput.val() || 0;
+      this.tax = this.fetchTax();
       this.updateTotal();
     });
     this.discountInput.on('input', () => {
-      this.discount = +this.discountInput.val() || 0;
+      this.discount = this.fetchDiscount();
       this.updateTotal();
       this.updateTipTotal();
     });
     this.tipInput.on('input', () => {
-      this.tipValue = +this.tipInput.val() || 0;
+      this.tipValue = this.fetchTipValue();
       this.updateTotal();
       this.updateTipTotal();
     });
@@ -155,11 +155,29 @@ export default class Splitable {
     });
     this.table.on('input', '.item-input', (e) => {
       const personIdx = e.target.dataset.personIndex;
-      this.table.find(`.due${personIdx}`).html(this.getPersonDue(personIdx));
+      const personDue = this.getPersonDue(personIdx);
+      
+      this.table.find(`.due${personIdx}`).html(toFinancialNumber(personDue));
       this.onDuesChanged();
     });
   }
 
+  fetchSubtotal() {
+    return +this.subtotalInput.val() || 0;
+  }
+
+  fetchTax() {
+    return +this.taxInput.val() || 0;
+  }
+
+  fetchDiscount() {
+    return +this.discountInput.val() || 0;
+  }
+
+  fetchTipValue() {
+    return +this.tipInput.val() || 0;
+  }
+ 
   addItem() {
     this.itemCount++;
 
@@ -187,7 +205,7 @@ export default class Splitable {
     const personIdx = this.personCount;
     let html = `<tr id="person${personIdx}-row" class="person-row">`;
     html += `    <td>${this.getPersonNameInputHtmlString(personIdx)}</td>`;
-    html += `    <td>$${this.getDueLabelHtmlString(personIdx, 0)}</td>`;
+    html += `    <td>$${this.getDueLabelHtmlString(personIdx, toFinancialNumber(0))}</td>`;
     // Add item price inputs
     for (let i = 1; i <= this.itemCount; i++) {
       html += '<td>';
