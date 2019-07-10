@@ -205,7 +205,7 @@ export default class Splitable {
     const personIdx = this.personCount;
     let html = `<tr id="person${personIdx}-row" class="person-row">`;
     html += `    <td>${this.getPersonNameInputHtmlString(personIdx)}</td>`;
-    html += `    <td>$${this.getDueLabelHtmlString(personIdx, 0)}</td>`;
+    html += `    <td>$${this.getDueLabelHtmlString(personIdx, toFinancialNumber(0))}</td>`;
     // Add item price inputs
     for (let i = 1; i <= this.itemCount; i++) {
       html += '<td>';
