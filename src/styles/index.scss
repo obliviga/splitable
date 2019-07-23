@@ -1,2 +1,37 @@
 @import '~material-design-lite/material.min.css';
 @import 'inputs';
+@import 'buttons';
+@import 'table';
+
+$spacing: 12px;
+
+header {
+  h1 {
+    line-height: 1;
+    margin: $spacing;
+  }
+
+  p {
+    margin-left: $spacing;
+  }
+}
+
+#splitable {
+  padding-right: $spacing;
+  padding-left: $spacing;
+
+  .tip-container {
+    display: flex;
+  
+    .tip-input-container,
+    .radio-button-container {
+      width: 50%;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  .button-container {
+
+  }
+}

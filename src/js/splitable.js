@@ -183,7 +183,7 @@ export default class Splitable {
 
     // Add the label for the new item column
     this.table.find('th:last-child').after(
-      `<th id="item${this.itemCount}-col-head" class="item-col-head">Item ${this.itemCount} Price</th>`,
+      `<th id="item${this.itemCount}-col-head" class="item-col-head">Item ${this.itemCount}</th>`,
     );
 
     const $rows = this.table.find('.person-row');

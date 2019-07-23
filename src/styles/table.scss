@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+
+  th {
+    text-align: left;
+  }
+
+  .name,
+  .due {
+    width: 20%;
+  }
+
+  .person-row {
+    input {
+      width: 90%;
+    }
+
+    .item-input {
+      width: 40px;
+    }
+  }
+}

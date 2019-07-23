@@ -16,7 +16,11 @@
 </head>
 
 <body>
-  <h1>Splitable.</h1>
+  <header>
+    <h1>Splitable.</h1>
+    <p>Split a bill by entering info from a receipt.</p>
+  </header>
+
   <div id="splitable">
     <div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -33,38 +37,39 @@
         <input class="tax-input mdl-textfield__input" type="number" id="tax-label" />
       </div>
 
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <label class="mdl-textfield__label" for="tip-label">
-          Tip
-        </label>
-        <input class="tip-input mdl-textfield__input" id="tip-label" type="number" />
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tip-container">
+        <div class="tip-input-container">
+          <label class="mdl-textfield__label" for="tip-label">
+            Tip
+          </label>
+          <input class="tip-input mdl-textfield__input" id="tip-label" type="number" />
+        </div>
+
+        <!-- <div class="calculated-tip">
+          $<span class="tip-total-label">0.00</span>
+        </div> -->
+
+        <div class="radio-button-container">
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="tip-option"> 
+            <input class="mdl-radio__button" id="tip-option" type="radio" name="tip-option" value="fixed" checked /> $
+          </label>
+    
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="percent-option"> 
+            <input class="mdl-radio__button" id="percent-option" type="radio" name="tip-option" value="percent" /> %
+          </label>
+        </div>
       </div>
-
-      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="percent-option"> 
-        <input class="mdl-radio__button" id="percent-option" type="radio" name="tip-option" value="percent" checked /> %
-      </label>
-
-      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="tip-option"> 
-        <input class="mdl-radio__button" id="tip-option" type="radio" name="tip-option" value="fixed" /> $
-      </label>
-
-      <label>
-        Total Tip: $<span class="tip-total-label">0.00</span>
-      </label>
-      <br>
-      <label>
+      <!-- <label>
         Discount
         <input class="discount-input" type="number" />
-      </label>
+      </label> -->
       <p>Total: $<span class="total-label">0.00</span></p>
-      <button class="add-person-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add person</button>
-      <button class="add-item-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add item</button>
     </div>
-    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Due</th>
+          <th class="name">Name</th>
+          <th class="due">Due</th>
           <!-- Item column labels added here -->
         </tr>
       </thead>
@@ -77,6 +82,7 @@
     <p class="total-mismatch-msg">Check Total does not match summed Total</p>
   </div>
   <script>
+    // Prevent FOUC
     window.onload = function() {
       document.querySelector('html').classList.remove('no-js');
     }
