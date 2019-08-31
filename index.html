@@ -19,8 +19,8 @@
 
 <body>
   <header>
-    <h1>Splitable.</h1>
-    <p>Split a bill by entering info from a receipt.🧾</p>
+    <h1>Splitable 🤑</h1>
+    <p>Split a bill by entering info from a receipt.</p>
   </header>
 
   <div id="splitable">
@@ -44,19 +44,19 @@
         </div>
       </div>
 
-      <div class="tip-container">
-        <div class="input-field tip-input-container">
+      <div class="row">
+        <div class="col s6 input-field tip-input-container">
           <label class="validate" for="tip-label">
             Tip
           </label>
           <input class="tip-input" id="tip-label" type="number" pattern="[0-9]*" inputmode="decimal" />
         </div>
 
-        <div class="calculated-tip">
+        <!-- <div class="calculated-tip">
           $<span class="tip-total-label">0.00</span>
-        </div>
+        </div> -->
 
-        <form class="radio-button-container">
+        <form class="col s6 radio-button-container">
           <label for="tip-option"> 
             <input class="input-field" id="tip-option" type="radio" name="tip-option-group" value="fixed" checked /> <span>$</span>
           </label>
