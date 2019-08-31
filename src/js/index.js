@@ -1,4 +1,6 @@
-import '../../node_modules/material-design-lite/material.min';
+import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize.min';
+
 import Splitable from './splitable';
 
 // Styles

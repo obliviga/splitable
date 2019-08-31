@@ -3,9 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
   <title>splitable - Split a bill!</title>
 
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
     .no-js {
@@ -49,27 +51,29 @@
           $<span class="tip-total-label">0.00</span>
         </div> -->
 
-        <div class="radio-button-container">
-          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="tip-option"> 
-            <input class="mdl-radio__button" id="tip-option" type="radio" name="tip-option" value="fixed" checked /> $
+        <form class="radio-button-container">
+          <label for="tip-option"> 
+            <input class="input-field" id="tip-option" type="radio" name="tip-option" value="fixed" checked /> <span>$</span>
           </label>
     
-          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="percent-option"> 
-            <input class="mdl-radio__button" id="percent-option" type="radio" name="tip-option" value="percent" /> %
+          <label for="percent-option"> 
+            <input class="input-field" id="percent-option" type="radio" name="tip-option" value="percent" /> <span>%</span>
           </label>
-        </div>
+        </form>
       </div>
       <!-- <label>
         Discount
         <input class="discount-input" type="number" />
       </label> -->
       <p>Total: $<span class="total-label">0.00</span></p>
+      <button class="add-person-btn waves-effect waves-light btn">Add person</button>
+      <button class="add-item-btn waves-effect waves-light btn">Add item</button>
     </div>
     <table>
       <thead>
         <tr>
-          <th class="name">Name</th>
-          <th class="due">Due</th>
+          <th class="name-col">Name</th>
+          <th class="due-col">Due</th>
           <!-- Item column labels added here -->
         </tr>
       </thead>
