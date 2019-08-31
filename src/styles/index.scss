@@ -16,9 +16,6 @@ header {
 }
 
 #splitable {
-  padding-right: $spacing;
-  padding-left: $spacing;
-
   .tip-container {
     display: flex;
   
@@ -27,6 +24,7 @@ header {
       width: 50%;
       display: flex;
       justify-content: space-around;
+      align-items: center;
     }
   }
 }

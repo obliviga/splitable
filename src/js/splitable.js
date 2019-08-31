@@ -43,7 +43,7 @@ export default class Splitable {
     this.discount = this.fetchDiscount();
     this.tipValue = this.fetchTipValue();
 
-    this.tipOption = this._$el.find("input[name='tip-option']:checked").val();
+    this.tipOption = this._$el.find("input[name='tip-option-group']:checked").val();
   }
 
   /* Getters */
@@ -148,7 +148,7 @@ export default class Splitable {
       this.updateTotal();
       this.updateTipTotal();
     });
-    this._$el.find('input[name="tip-option"]').on('input', (e) => {
+    this._$el.find('input[name="tip-option-group"]').on('input', (e) => {
       this.tipOption = e.target.value;
       this.updateTotal();
       this.updateTipTotal();

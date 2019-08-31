@@ -20,51 +20,53 @@
 <body>
   <header>
     <h1>Splitable.</h1>
-    <p>Split a bill by entering info from a receipt.</p>
+    <p>Split a bill by entering info from a receipt.🧾</p>
   </header>
 
   <div id="splitable">
     <div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <label class="mdl-textfield__label" for="subtotal-label">
-          Subtotal
-        </label>
-        <input class="subtotal-input mdl-textfield__input" type="number" id="subtotal-label" />
+      <div class="row">
+        <div class="col s6">
+          <div class="input-field">
+            <input class="subtotal-input" type="number" pattern="[0-9]*" inputmode="decimal" id="subtotal-label" />
+            <label class="validate" for="subtotal-label">
+              Subtotal
+            </label>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="input-field">
+            <label class="validate" for="tax-label">
+              Tax
+            </label>
+            <input class="tax-input" type="number" pattern="[0-9]*" inputmode="decimal" id="tax-label" />
+          </div>
+        </div>
       </div>
 
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <label class="mdl-textfield__label" for="tax-label">
-          Tax
-        </label>
-        <input class="tax-input mdl-textfield__input" type="number" id="tax-label" />
-      </div>
-
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tip-container">
-        <div class="tip-input-container">
-          <label class="mdl-textfield__label" for="tip-label">
+      <div class="tip-container">
+        <div class="input-field tip-input-container">
+          <label class="validate" for="tip-label">
             Tip
           </label>
-          <input class="tip-input mdl-textfield__input" id="tip-label" type="number" />
+          <input class="tip-input" id="tip-label" type="number" pattern="[0-9]*" inputmode="decimal" />
         </div>
 
-        <!-- <div class="calculated-tip">
+        <div class="calculated-tip">
           $<span class="tip-total-label">0.00</span>
-        </div> -->
+        </div>
 
         <form class="radio-button-container">
           <label for="tip-option"> 
-            <input class="input-field" id="tip-option" type="radio" name="tip-option" value="fixed" checked /> <span>$</span>
+            <input class="input-field" id="tip-option" type="radio" name="tip-option-group" value="fixed" checked /> <span>$</span>
           </label>
     
           <label for="percent-option"> 
-            <input class="input-field" id="percent-option" type="radio" name="tip-option" value="percent" /> <span>%</span>
+            <input class="input-field" id="percent-option" type="radio" name="tip-option-group" value="percent" /> <span>%</span>
           </label>
         </form>
       </div>
-      <!-- <label>
-        Discount
-        <input class="discount-input" type="number" />
-      </label> -->
+
       <p>Total: $<span class="total-label">0.00</span></p>
       <button class="add-person-btn waves-effect waves-light btn">Add person</button>
       <button class="add-item-btn waves-effect waves-light btn">Add item</button>
