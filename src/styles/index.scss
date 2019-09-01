@@ -9,10 +9,10 @@ header {
     line-height: 1;
     margin: $spacing;
   }
+}
 
-  p {
-    margin-left: $spacing;
-  }
+p {
+  margin-left: $spacing;
 }
 
 #splitable {
@@ -22,7 +22,10 @@ header {
     height: 51px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+
+    label:first-child {
+      padding-right: 24px;
+    }
   }
 
   .row {
