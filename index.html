@@ -19,7 +19,7 @@
 
 <body>
   <header>
-    <h1>Splitable 🤑</h1>
+    <h1>Splitable <div class="emoji animated pulse">🤑</div></h1>
     <p>Split a bill by entering info from a receipt.</p>
   </header>
 
@@ -69,7 +69,7 @@
     <p>Total: $<span class="total-label">0.00</span></p>
     <button class="add-person-btn waves-effect waves-light btn">Add person</button>
     <button class="add-item-btn waves-effect waves-light btn">Add item</button>
-    <table>
+    <table class="highlight">
       <thead>
         <tr>
           <th class="name-col">Name</th>
@@ -81,9 +81,12 @@
         <!-- Person rows -->
       </tbody>
     </table>
-    <p>Itemized Total: $<span class="itemized-total-label">0.00</span></p>
-    <p class="total-match-msg">Everything checks out</p>
-    <p class="total-mismatch-msg">Check Total does not match summed Total</p>
+    <p class="itemized-total">Itemized Total: $<span class="itemized-total-label">0.00</span></p>
+    <div class="message-container">
+      <p class="total-match-msg green-text">✅Everything checks out</p>
+      <p class="total-mismatch-msg red-text">❌Check total does not match itemized total</p>
+    </div>
+
   </div>
   <script>
     // Prevent FOUC

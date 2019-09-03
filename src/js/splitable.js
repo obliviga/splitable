@@ -1,4 +1,5 @@
 import $ from 'jquery';
+
 import { toFinancialNumber } from './util';
 
 const TipOptions = Object.freeze({
@@ -35,6 +36,8 @@ export default class Splitable {
   }
 
   initState() {
+    const toggledElements = $('table, .btn, .itemized-total ');
+
     this.personCount = this.table.find('.person-row').length;
     this.itemCount = this.table.find('.item-col-head').length;
 
@@ -44,6 +47,13 @@ export default class Splitable {
     this.tipValue = this.fetchTipValue();
 
     this.tipOption = this._$el.find("input[name='tip-option-group']:checked").val();
+
+    // If subtotal is empty, hide table and associated elements
+    if (this.subtotal === 0) {
+      toggledElements.hide();
+    } else {
+      toggledElements.show();
+    }
   }
 
   /* Getters */
@@ -52,6 +62,14 @@ export default class Splitable {
     const tax = this.tax;
     const tip = this.tip;
     const discount = this.discount;
+    const toggledElements = $('table, .btn, .itemized-total ');
+
+    // If subtotal is empty, hide table and associated elements
+    if (subtotal === 0) {
+      toggledElements.hide();
+    } else {
+      toggledElements.show();
+    }
 
     return (subtotal * (1 - (discount / 100))) + tip + tax;
   }
@@ -112,6 +130,15 @@ export default class Splitable {
     } else {
       this.totalMatchMessage.hide();
       this.totalMismatchMessage.show();
+    }
+
+    const toggledElements = $('table, .btn, .itemized-total');
+
+    // If subtotal is empty, hide table and associated elements
+    if (this.subtotal === 0) {
+      toggledElements.hide();
+    } else {
+      toggledElements.show();
     }
   }
 
@@ -192,10 +219,10 @@ export default class Splitable {
     for (let i = 0; i < this.personCount; i++) {
       const personIdx = i + 1;
       $rows.eq(i).append(`
-							<td>
-									${this.getItemInputHtmlString(personIdx, this.itemCount)}
-							</td>
-					`);
+        <td>
+            ${this.getItemInputHtmlString(personIdx, this.itemCount)}
+        </td>
+      `);
     }
   }
 
@@ -218,7 +245,7 @@ export default class Splitable {
   }
 
   getItemInputHtmlString(personIdx, itemIdx) {
-    return `<input type="number" data-person-index="${personIdx}" data-item-index="${itemIdx}" class="item-input person${personIdx}-item" min="0" />`;
+    return `<input type="number" pattern="[0-9]*" inputmode="decimal" data-person-index="${personIdx}" data-item-index="${itemIdx}" class="item-input person${personIdx}-item" min="0" />`;
   }
 
   getPersonNameInputHtmlString(personIdx) {

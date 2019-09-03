@@ -6,6 +6,10 @@ table {
     text-align: left;
   }
 
+  td {
+    padding: 5px;
+  }
+
   .name-col,
   .due-col {
     width: 20%;
@@ -15,9 +19,9 @@ table {
     input {
       width: 90%;
     }
+  }
 
-    .item-input {
-      width: 40px;
-    }
+  input {
+    font-size: 12px;
   }
 }

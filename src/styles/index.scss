@@ -9,9 +9,14 @@ header {
     line-height: 1;
     margin: $spacing;
   }
+
+  .emoji {
+    display: inline-block;
+  }
 }
 
-p {
+p,
+.btn {
   margin-left: $spacing;
 }
 
