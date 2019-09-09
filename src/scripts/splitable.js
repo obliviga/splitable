@@ -71,6 +71,9 @@ export default class Splitable {
       toggledElements.show();
     }
 
+    // Add placeholder to first item input field
+    $("[data-person-index='1'][data-item-index='1']").attr('placeholder', '66.55');
+
     return (subtotal * (1 - (discount / 100))) + tip + tax;
   }
 
@@ -209,9 +212,7 @@ export default class Splitable {
     this.itemCount++;
 
     // Add the label for the new item column
-    this.table.find('th:last-child').after(
-      `<th id="item${this.itemCount}-col-head" class="item-col-head">Item ${this.itemCount}</th>`,
-    );
+    this.table.find('th:last-child').after(`<th id="item${this.itemCount}-col-head" class="item-col-head">Item ${this.itemCount}</th>`);
 
     const $rows = this.table.find('.person-row');
 
