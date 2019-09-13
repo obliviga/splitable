@@ -19,4 +19,3 @@ splitable.addItem();
 document.addEventListener('DOMContentLoaded', () => {
   M.AutoInit();
 });
-
