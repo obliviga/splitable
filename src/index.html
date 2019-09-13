@@ -4,11 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
+  <meta name="description" content="Web app to help you split a bill or receipt with your friends. Easily figure out who owes you what, based on what they paid.">
+
   <title>splitable - Split a bill!</title>
 
+  <link rel="canonical" href="http://splitable.net">
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
   <style>
     .no-js {
       visibility: hidden;
@@ -87,6 +90,22 @@
       <p class="total-mismatch-msg red-text">❌Check total does not match itemized total</p>
     </div>
 
+  </div>
+
+  <!-- Modal Trigger -->
+  <a class="modal-trigger hvr-grow" href="#modal1">ℹ️</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>About</h4>
+      <p>The motivation behind this app starts with my best friend of <span id="yearsOfFriendship"></span> years: Bryan. We would frequently go out to eat with friends and usually have to go through some unfun and complicated process of figuring out who should pay for what on the bill. So instead of having to use a calculator or taking precious space on your phone by downloading an app, he decided to create a spreadsheet using Google Sheets so that anyone can easily calculate how much people owe the person paying for the bill. <a href="http://obliviga.com" target="_blank">I</a> decided to take his spreadsheet and turn it into a web app, with the help of a <a href="https://github.com/luisdfp" target="_blank">colleague</a>.</p>
+
+      <p>Feel free to email me with any suggestions or feedback regarding this app: <a href="mailto:feedback@splitable.net">feedback@splitable.net</a></p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Goodbye.</a>
+    </div>
   </div>
   <script>
     // Prevent FOUC

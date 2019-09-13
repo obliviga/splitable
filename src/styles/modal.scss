@@ -1,0 +1,17 @@
+.modal,
+.modal-footer {
+  background-color: #efebe9 !important;
+}
+
+.modal {
+  p {
+    margin-left: unset;
+  }
+}
+
+.modal-trigger {
+  font-size: 24px;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+}

@@ -2,13 +2,8 @@
 
 ## Table of Contents
 
-- [Motivation](#motivation)
 - [Requirements](#requirements)
 - [Usage](#usage)
-
-## Motivation
-
-I'll get there.
 
 ## Requirements
 
