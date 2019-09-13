@@ -2,6 +2,16 @@
 <html lang="en" class="no-js">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-52112878-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-52112878-3');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Web app to help you split a bill or receipt with your friends. Easily figure out who owes you what, based on what they paid.">
@@ -18,6 +28,15 @@
       opacity: 0;
     }
   </style>
+
+  <!-- Google Adsense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-7737744305239487",
+      enable_page_level_ads: true
+    });
+  </script>
 </head>
 
 <body>
@@ -99,11 +118,21 @@
   <div id="modal1" class="modal">
     <div class="modal-content">
       <h4>About</h4>
-      <p>The motivation behind this app starts with my best friend of <span id="yearsOfFriendship"></span> years: Bryan. We would frequently go out to eat with friends and usually have to go through some unfun and complicated process of figuring out who should pay for what on the bill. So instead of having to use a calculator or taking precious space on your phone by downloading an app, he decided to create a spreadsheet using Google Sheets so that anyone can easily calculate how much people owe the person paying for the bill. <a href="http://obliviga.com" target="_blank">I</a> decided to take his spreadsheet and turn it into a web app, with the help of a <a href="https://github.com/luisdfp" target="_blank">colleague</a>.</p>
+      <p>The motivation behind this app starts with my best friend of <span id="yearsOfFriendship"></span> years: <a href="https://www.linkedin.com/in/bryan-santos-b474b25a/" target="_blank">Bryan</a>. We would frequently go out to eat with friends and usually have to go through some unfun and complicated process of figuring out who should pay for what on the bill. So instead of having to use a calculator or taking precious space on your phone by downloading an app, he decided to create a spreadsheet using Google Sheets so that anyone can easily calculate how much people owe the person paying for the bill. <a href="http://obliviga.com" target="_blank">I</a> decided to take his spreadsheet and turn it into a web app, with the help of a <a href="https://github.com/luisdfp" target="_blank">colleague</a>.</p>
 
-      <p>Feel free to email me with any suggestions or feedback regarding this app: <a href="mailto:feedback@splitable.net">feedback@splitable.net</a></p>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        Please&nbsp;
+        <input type="hidden" name="cmd" value="_donations" />
+        <input type="hidden" name="business" value="obliviga@hotmail.com" />
+        <input type="hidden" name="item_name" value="Funding hosting of splitable.net" />
+        <input type="hidden" name="currency_code" value="USD" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+        &nbsp;if you found this app useful, as every bit would help with hosting costs :)
+      </form> 
     </div>
     <div class="modal-footer">
+      <a class="email" href="mailto:feedback@splitable.net">feedback@splitable.net</a>
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Goodbye.</a>
     </div>
   </div>

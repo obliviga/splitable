@@ -45,3 +45,10 @@ p,
     font-weight: bold;
   }
 }
+
+.modal-trigger {
+  font-size: $spacing * 2;
+  position: absolute;
+  top: 8px;
+  right: $spacing;
+}
