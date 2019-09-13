@@ -1,3 +1,6 @@
+@import 'materialize-css/sass/materialize.scss';
+@import 'materialize-css/sass/components/_variables.scss';
+
 table {
   width: 100%;
   table-layout: fixed;
@@ -10,18 +13,35 @@ table {
     padding: 5px;
   }
 
-  .name-col,
+  .name-col {
+    width: 20%;
+  }
+
   .due-col {
     width: 20%;
+    text-align: center;
+
+    @media #{$medium-and-up} {
+      width: 10%;
+    }
   }
 
   .person-row {
     input {
       width: 90%;
     }
+
+    // tds under due thead
+    td:nth-child(2) {
+      text-align: center;
+    }
   }
 
-  input {
-    font-size: 12px;
-  }
+  // input {
+  //   font-size: 14px !important;
+
+  //   @media #{$medium-and-up} {
+  //     font-size: inherit;
+  //   }
+  // }
 }

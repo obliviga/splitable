@@ -1,8 +1,10 @@
-@import 'inputs';
-@import 'buttons';
 @import 'table';
 
 $spacing: 12px;
+
+body {
+  background-color: #efebe9;
+}
 
 header {
   h1 {
@@ -35,5 +37,10 @@ p,
 
   .row {
     margin-bottom: 0;
+  }
+
+  .total-match-msg,
+  .total-mismatch-msg {
+    font-weight: bold;
   }
 }

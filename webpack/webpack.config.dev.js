@@ -7,15 +7,16 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-eval-source-map',
   output: {
-    chunkFilename: 'js/[name].chunk.js'
+    chunkFilename: 'js/[name].chunk.js',
   },
   devServer: {
-    inline: true
+    inline: true,
+    host: '192.168.0.111',
   },
   plugins: [
     new Webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
-    })
+      'process.env.NODE_ENV': JSON.stringify('development'),
+    }),
   ],
   module: {
     rules: [
@@ -26,17 +27,17 @@ module.exports = merge(common, {
         loader: 'eslint-loader',
         options: {
           emitWarning: true,
-        }
+        },
       },
       {
         test: /\.(js)$/,
         include: Path.resolve(__dirname, '../src'),
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.s?css$/i,
-        use: ['style-loader', 'css-loader?sourceMap=true', 'sass-loader']
-      }
-    ]
-  }
+        use: ['style-loader', 'css-loader?sourceMap=true', 'sass-loader'],
+      },
+    ],
+  },
 });
