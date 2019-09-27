@@ -1,9 +1,16 @@
+@import 'materialize-css/sass/materialize.scss';
+@import 'materialize-css/sass/components/_variables.scss';
+
 .modal,
 .modal-footer {
   background-color: #efebe9 !important;
 }
 
-.modal {
+#about-modal {
+  @media #{$small-and-down} {
+    width: 90%;
+  }
+
   p {
     margin-left: unset;
   }
@@ -23,6 +30,16 @@
     .email {
       align-self: center;
       left: 24px;
+
+      @media #{$small-and-down} {
+        left: 12px;
+      }
+    }
+  }
+
+  .modal-content {
+    @media #{$small-and-down} {
+      padding: 12px;
     }
   }
 }
