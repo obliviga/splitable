@@ -53,7 +53,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "hover.css": "^2.3.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "materialize-css": "^1.0.0"
   }
 }
