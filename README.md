@@ -1,3 +1,5 @@
+https://splitable.netlify.app/
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/81efd450-7310-4a1f-bb58-b2e03d04a024/deploy-status)](https://app.netlify.com/sites/splitable/deploys)
 
 ## Table of Contents
